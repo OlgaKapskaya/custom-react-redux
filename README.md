@@ -64,6 +64,25 @@ export const store = createStore(rootReducer, {
     counter: 0
 })
 ```
+
+### callSubscriber
+
+```bash
+const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+);
+
+//add this code to redraw the app
+const callSubscriber = () => { 
+    root.render(
+            <App/>
+    );
+}
+
+callSubscriber() 
+store.subscribe(callSubscriber) 
+```
+
 ### Provider
 
 Added Provider into your app
@@ -79,11 +98,16 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-root.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>
-);
+const callSubscriber = () => {
+    root.render(
+        <Provider store={store}> 
+            <App/>
+        </Provider> 
+    );
+}
+
+callSubscriber()
+store.subscribe(callSubscriber)
 ```
 ### useDispatch()
 
@@ -96,7 +120,6 @@ import {useDispatch} from "custom-react-redux";
 const dispatch = useDispatch()
 dispatch({type: 'INCREMENT'})
 ```
-
 ### useSelector<StateType>()
 
 ```bash
