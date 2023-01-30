@@ -55,7 +55,7 @@ const rootReducer = combineReducers({
 
 ### createStore(reducer, initialState)
 
-//Creates a store that holds the complete state tree of your app. There should only be a single store in your app.
+Creates a store that holds the complete state tree of your app. There should only be a single store in your app.
 
 ```bash
 import {createStore} from "custom-react-redux";
