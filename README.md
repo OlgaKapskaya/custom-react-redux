@@ -96,3 +96,12 @@ import {useDispatch} from "custom-react-redux";
 const dispatch = useDispatch()
 dispatch({type: 'INCREMENT'})
 ```
+
+### useSelector<StateType>()
+
+```bash
+import {useSelector} from "custom-react-redux";
+
+
+ const state = useSelector<StateType>()
+```
