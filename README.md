@@ -53,16 +53,16 @@ const rootReducer = combineReducers({
 
 ```
 
-### createStore(reducer, initialState)
+### createStore(reducer)
 
 Creates a store that holds the complete state tree of your app. There should only be a single store in your app.
 
 ```bash
 import {createStore} from "custom-react-redux";
 
-export const store = createStore(rootReducer, {
-    counter: 0
-})
+export const store = createStore(rootReducer)
+
+export type AppRootStateType = ReturnType<typeof rootReducer>
 ```
 
 ### callSubscriber
@@ -120,11 +120,13 @@ import {useDispatch} from "custom-react-redux";
 const dispatch = useDispatch()
 dispatch({type: 'INCREMENT'})
 ```
-### useSelector<StateType>()
+### useSelector()
+
+Allows you to extract data from the store state, using a selector function.
 
 ```bash
 import {useSelector} from "custom-react-redux";
 
 
- const state = useSelector<StateType>()
+ const counter = useSelector<AppRootStateType, number>(state => state.counter)
 ```

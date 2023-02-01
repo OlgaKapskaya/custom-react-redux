@@ -2,7 +2,7 @@ import {StoreType} from "../types/types";
 import React, {createContext, FC, ReactNode} from "react";
 
 type ContextType = StoreType;
-export const Context = createContext<ContextType>({} as StoreType);
+export const Context = createContext<ContextType>({} as ContextType);
 
 type ProviderType = {
     store:  StoreType

@@ -1,8 +1,8 @@
 import {Action, Reducer} from "../types/types";
 
 
-export function createStore<S, A extends Action>(reducer: Reducer<S, A>, initialState: S) {
-    let state = initialState
+export function createStore<S, A extends Action>(reducer: Reducer<S, A>) {
+    let state = reducer({} as S, {type: ''} as A)
     //@ts-ignore
     let callSubscriber = () => {}
     return {
